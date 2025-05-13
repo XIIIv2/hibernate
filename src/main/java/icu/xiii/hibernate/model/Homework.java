@@ -23,7 +23,7 @@ public class Homework {
     @Column(name = "mark", nullable = false)
     private int mark;
 
-    @ManyToOne()
+    @OneToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
 
