@@ -30,15 +30,16 @@ public class Main {
 
                 studentDao.save(List.of(bob, john, jane));
 
-                bob.removeHomework(homework);
-                studentDao.update(bob);
-
                 jane.addHomework(new Homework("Test 123", LocalDate.of(2025, 10, 1), 1));
                 jane.addHomework(new Homework("Test ABC 123", LocalDate.of(2025, 10, 7), 1));
                 studentDao.update(jane);
 
                 System.out.println("findById(3L): " + studentDao.findById(3L));
                 System.out.println("findByEmail(\"bob@mail.com\"): " + studentDao.findByEmail("bob@mail.com"));
+
+                System.out.println("Remove homework from student #" + bob.getId() + ": " + homework);
+                bob.removeHomework(homework);
+                studentDao.update(bob);
 
                 if (studentDao.deleteById(2L)) {
                     System.out.println("deleteById(2L): done");
